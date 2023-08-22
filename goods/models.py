@@ -7,8 +7,9 @@ class Categories(models.Model):
                             help_text="Enter a сategory title")
     description = models.TextField(max_length=3000,
                                    verbose_name="Сategory description",
-                                   help_text="Must contain only 3000 characters")
-    img = models.BinaryField()
+                                   help_text="Must contain only 3000 characters",
+                                   default='Описание отсутствует')
+    img = models.BinaryField(default=None)
     is_active = models.BooleanField(null=True)
     def __str__(self):
         return {self.name}
@@ -25,9 +26,10 @@ class Goods(models.Model):
                                    limit_choices_to={"is_active": True})
     description = models.TextField(max_length=3000,
                                    verbose_name="Good description",
-                                   help_text="Must contain only 3000 characters")
-    img = models.BinaryField()
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+                                   help_text="Must contain only 3000 characters",
+                                   default='Описание отсутствует')
+    img = models.BinaryField(default=None)
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=None)
     is_active = models.BooleanField(null=True)
     def __str__(self):
         return f'{self.categories.name}: {self.name}'
