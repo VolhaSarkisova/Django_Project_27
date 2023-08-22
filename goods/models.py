@@ -5,18 +5,13 @@ class Categories(models.Model):
     name = models.CharField(max_length=70,
                             verbose_name="Сategory",
                             help_text="Enter a сategory title")
-    description = models.TextField(max_length=3000,
-                                   verbose_name="Сategory description",
-                                   help_text="Must contain only 3000 characters",
-                                   default='Описание отсутствует')
-    img_url = models.URLField(default='https://content2.onliner.by/catalog/device/header/c7d28e78749461b622b5054454818022.jpeg')
     is_active = models.BooleanField(null=True)
     def __str__(self):
-        return {self.name}
+        return self.name
     class Meta:
         verbose_name = 'Сategory'
         verbose_name_plural = 'Categories'
-        ordering = ['-is_active', 'name']
+        ordering = ['is_active', 'name']
 class Goods(models.Model):
     name = models.CharField(max_length=100,
                             verbose_name="Good",
