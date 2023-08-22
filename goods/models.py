@@ -23,7 +23,7 @@ class Goods(models.Model):
                                    verbose_name="Good description",
                                    help_text="Must contain only 3000 characters",
                                    default='Описание отсутствует')
-    img = models.BinaryField(default=None)
+    img_url = models.URLField(max_length=500, default=None)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=None)
     is_active = models.BooleanField(null=True)
     def __str__(self):
