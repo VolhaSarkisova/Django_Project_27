@@ -16,7 +16,7 @@ class Goods(models.Model):
     name = models.CharField(max_length=100,
                             verbose_name="Good",
                             help_text="Enter a good title")
-    categories = models.ForeignKey(Categories,
+    category = models.ForeignKey(Categories,
                                    on_delete=models.PROTECT,
                                    limit_choices_to={"is_active": True})
     description = models.TextField(max_length=3000,
@@ -27,7 +27,7 @@ class Goods(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, default=None)
     is_active = models.BooleanField(null=True)
     def __str__(self):
-        return f'{self.categories.name}: {self.name}'
+        return f'{self.category.name}: {self.name}'
     class Meta:
         verbose_name = 'Good'
         verbose_name_plural = 'Goods'
