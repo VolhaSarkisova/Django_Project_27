@@ -9,7 +9,7 @@ class Categories(models.Model):
                                    verbose_name="Сategory description",
                                    help_text="Must contain only 3000 characters",
                                    default='Описание отсутствует')
-    img = models.BinaryField(default=None)
+    img_url = models.URLField(default='https://content2.onliner.by/catalog/device/header/c7d28e78749461b622b5054454818022.jpeg')
     is_active = models.BooleanField(null=True)
     def __str__(self):
         return {self.name}
