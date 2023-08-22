@@ -22,7 +22,7 @@ class Goods(models.Model):
     description = models.TextField(max_length=3000,
                                    verbose_name="Good description",
                                    help_text="Must contain only 3000 characters",
-                                   default='Описание отсутствует')
+                                   default='No description')
     img_url = models.URLField(max_length=500, default=None)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=None)
     is_active = models.BooleanField(null=True)
