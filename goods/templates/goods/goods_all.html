@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>All Goods</title>
+</head>
+<body>
+    <div class="goods_container">
+        {% for new_obj in goods %}
+            <div class="goods_block">
+                <h3>{{new_obj.category}}</h3>
+                <h1>{{new_obj.name}}</h1>
+                <img src={{new_obj.img_url}}>
+                <h2>{{new_obj.price}}</h2>
+                <h4>{{new_obj.description}}</h4>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
